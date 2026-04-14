@@ -1,1 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Verificación CFDI</title>
 
+<style>
+body{font-family:Arial;background:#f3f3f3;margin:0}
+.header{background:#611232;color:white;padding:15px}
+.container{max-width:900px;margin:20px auto;background:white;padding:20px}
+table{width:100%;border-collapse:collapse}
+td{border:1px solid #ccc;padding:10px}
+.label{background:#efefef;font-weight:bold}
+.btn{margin-top:20px;padding:10px;background:#611232;color:white;border:none}
+</style>
+</head>
+
+<body>
+
+<div class="header">
+Servicio de Administración Tributaria
+</div>
+
+<div class="container">
+
+<h3>Verificación de Comprobantes Fiscales Digitales</h3>
+
+<table>
+<tr><td class="label">UUID</td><td id="uuid"></td></tr>
+<tr><td class="label">RFC Emisor</td><td id="emisor"></td></tr>
+<tr><td class="label">RFC Receptor</td><td id="receptor"></td></tr>
+<tr><td class="label">Total</td><td id="total"></td></tr>
+<tr><td class="label">Fecha</td><td id="fecha"></td></tr>
+</table>
+
+<button class="btn" onclick="window.print()">Imprimir</button>
+
+</div>
+
+<script>
+const params = new URLSearchParams(window.location.search);
+
+document.getElementById("uuid").innerText = params.get("uuid");
+document.getElementById("emisor").innerText = params.get("emisor");
+document.getElementById("receptor").innerText = params.get("receptor");
+document.getElementById("total").innerText = params.get("total");
+document.getElementById("fecha").innerText = params.get("fecha");
+</script>
+
+</body>
+</html>
